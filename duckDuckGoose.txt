@@ -1,0 +1,26 @@
+Из заданного массива выбрать элемент под указанным номером (если номер элемента больше длины массива, то начинается новый круг
+Мое решение
+
+function duckDuckGoose(players, goose) {  
+    return players[(goose - 1) % players.length].name;
+  }
+
+Другие решения
+
+const duckDuckGoose = (players, goose) => players[(goose - 1) % players.length].name;
+
+function duckDuckGoose(players, goose) {
+  for (var i = 0; i < players.length; i++) {
+    if (i === (goose-1) % players.length) {
+      return players[i].name;
+    }
+  }
+}
+
+function duckDuckGoose(players, goose) {
+  let circle = goose;
+  while(players.length < circle) {
+    circle -= players.length
+  }
+  return players[circle - 1 ].name
+}
